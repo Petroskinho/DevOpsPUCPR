@@ -1,9 +1,14 @@
 name: Continuous Integration
+
 on:
   pull_request:
     branches:
       - main
 
+permissions:
+  contents: read
+  actions: read
+  security-events: write  # ESSENCIAL para publicar resultados do code scanning
 
 jobs:
   build:
