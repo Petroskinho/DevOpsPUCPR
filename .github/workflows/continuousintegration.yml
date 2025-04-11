@@ -1,23 +1,17 @@
-name: Python Lint
-
+name: Continuous Integration
 on:
-  pull_request:
-    branches: [ main ]
+  push:
+    branches:
+      - main
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository code
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Python Lint Code Scanning Action
+        uses: advanced-security/python-lint-code-scanning-action@v1.1.1
         with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: pip install pylint
-
-      - name: Run pylint
-        run: pylint **/*.py
+          linter: pylint
