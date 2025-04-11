@@ -1,3 +1,5 @@
+import random
+
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -7,5 +9,5 @@ async def root():
     return {"message": "Hello World"}
 
 @app.get("/teste1")
-async def root():
-    return {"message": "teste deu certo"}
+async def funcaoteste():
+    return {"message": True, "num_aleatorio": random.randint(0, 1000)}
