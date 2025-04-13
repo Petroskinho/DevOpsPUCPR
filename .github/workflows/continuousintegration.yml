@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Teste
-        uses: actions/upload-artifact@v4
+        uses: actions/actions/upload-pages-artifact@v3
 
       - name: Python Lint Code Scanning Action
         uses: advanced-security/python-lint-code-scanning-action@v1.1.1
