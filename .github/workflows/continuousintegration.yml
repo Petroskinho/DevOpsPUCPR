@@ -16,6 +16,8 @@ jobs:
         with:
           linter: pylint
 
-      - name: Upload a Build Artifact
+      - uses: actions/upload-artifact@v4
+        with:
+          name: meu-artefato
+          path: path/to/artifact/
 
-        uses: actions/upload-artifact@v4.6.2
