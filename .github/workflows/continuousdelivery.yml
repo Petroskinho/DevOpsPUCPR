@@ -1,25 +1,20 @@
-name: Continuous Delivery
+name: Continuous Integration
 on:
-  pull_request:
+  push:
     branches:
       - main
 
 jobs:
-  build:
+  deliver:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Python Lint Code Scanning Action
-        uses: advanced-security/python-lint-code-scanning-action@v1.1.2
+      - name: Simulando CD
+        uses: actions/upload-artifact@v4
         with:
-          linter: pylint
-
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: DevOpsTrab.zip
+          name: projetozipado.zip
           path: |
-            '**.py"
-            README.me
+            'main.py'
+            README.md
