@@ -13,6 +13,6 @@ async def funcaoteste():
     return {"message": True, "num_aleatorio": random.randint(0, 1000)}
 
 @app.get("/teste2")
-async def funcaoteste():
+async def funcaoteste2():
     return {"message": "Teste para o CI/CD"}
 
