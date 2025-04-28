@@ -4,9 +4,6 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/helloworld")
-async def root():
-    return {"message": "Hello World"}
   
 @app.get("/teste1")
 async def funcaoteste():
@@ -16,3 +13,6 @@ async def funcaoteste():
 async def funcaoteste2():
     return {"message": "Teste para o CI/CD"}
 
+@app.get("/testeDiscord")
+async def funcaoteste2():
+    return {"message": "Teste para a atividade formativa discord semana 6"}
