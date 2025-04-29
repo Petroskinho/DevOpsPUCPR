@@ -1,0 +1,21 @@
+from src.main import *
+from unittest.mock import patch
+
+def test_root():
+    assert root() == {"message": "Hello World"}
+
+def funcaoteste():
+    with patch('randon.randint', return_value=12345):
+        result = funcaoteste()
+    assert result == {"teste": True, "num_aleatorio": 12345}
+
+def test_create_estudante():
+    estudante_teste = Estudante(name="Carlos", curso="ADS", ativo=False)
+
+    assert estudante_teste == create_estudante()
+
+def test_update_estudante_negativo():
+    assert not update_estudante(-5)
+
+def test_update_estudante_positivo():
+    assert update_estudante(10)
