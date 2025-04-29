@@ -1,26 +1,17 @@
-import random
 from fastapi import FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()
 
-class Estudante(BaseModel):
-    name: str
-    curso: str
-    ativo: bool
+class NotasAluno(BaseModel):
+    nota1: float
+    nota2: float
+    nota3: float
 
-@app.get("/helloworld")
-async def root():
-    return {"message": "Hello World"}
-
-@app.get("/funcaoteste")
-async def funcaoteste():
-    return {"teste": True, "num_aleatorio": random.randint(0, 57000)}
-
-@app.post("/estudantes/cadastro")
-async def create_estudante(estudante: Estudante):
-    return estudante
-
-@app.put("/estudantes/update/{id_estudante}")
-async def update_estudante(id_estudante: int):
-    return id_estudante > 0
+@app.post("/avaliar")
+async def avaliar_aluno(notas: NotasAluno):
+    media = (notas.nota1 + notas.nota2 + notas.nota3) / 3
+    if media >= 7.0:
+        return {"media": media, "status": "Aprovado"}
+    else:
+        return {"media": media, "status": "Reprovado"}
